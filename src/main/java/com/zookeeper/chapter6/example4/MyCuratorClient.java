@@ -1,4 +1,4 @@
-package com.zookeeper.chapter3.example4;
+package com.zookeeper.chapter6.example4;
 
 import org.apache.curator.CuratorZookeeperClient;
 import org.apache.curator.retry.RetryOneTime;

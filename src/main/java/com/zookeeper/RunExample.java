@@ -1,12 +1,12 @@
-package com.zookeeper.chapter3;
+package com.zookeeper;
 
 import com.zookeeper.chapter3.example1.HelloZooKeeper;
 import com.zookeeper.chapter3.example2.DataUpdater;
 import com.zookeeper.chapter3.example2.DataWatcher;
 import com.zookeeper.chapter3.example3.ClusterClient;
 import com.zookeeper.chapter3.example3.ClusterMonitor;
-import com.zookeeper.chapter3.example4.MyCuratorClient;
-import com.zookeeper.chapter3.example5.CuratorFrameworkClient;
+import com.zookeeper.chapter6.example4.MyCuratorClient;
+import com.zookeeper.chapter6.example5.CuratorFrameworkClient;
 
 public class RunExample {
 

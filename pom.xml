@@ -58,7 +58,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.zookeeper.chapter3.RunExample</mainClass>
+                            <mainClass>com.zookeeper.RunExample</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>

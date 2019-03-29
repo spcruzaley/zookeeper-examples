@@ -1,4 +1,4 @@
-package com.zookeeper.chapter3.example5;
+package com.zookeeper.chapter6.example5;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
