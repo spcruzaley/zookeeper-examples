@@ -8,7 +8,6 @@ Este repo solo se centra en mostrar algunos ejemplos practicos citados en el lib
 
   - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13
   - [Docker](https://www.docker.com/) como contenedor para las pruebas de concepto
-  - El libro mencionado puedes encontrarlo en la pagina de [all it ebooks](http://www.allitebooks.com)
 
 ### Instalación
 
