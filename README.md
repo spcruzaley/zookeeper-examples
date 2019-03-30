@@ -1,20 +1,24 @@
 # ZooKeeper
+![alt text](https://zookeeper.apache.org/images/zookeeper_small.gif)
 
 Ejemplos tomados del libro **Apache ZooKeeper Essentials** *[Aquí puedes conseguirlo](http://www.allitebooks.com)*
 
 Este repo solo se centra en mostrar algunos ejemplos practicos citados en el libro de ZooKeeper.
 
+`NOTA: Si bien el proyecto, comentarios y algunas cosas mas estan en ingles, la descripción la quice mantener en español dado que no existe mucha información en español al respecto.`
+
 # Herramientas utilizadas
 
   - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13
   - [Docker](https://www.docker.com/) como contenedor para las pruebas de concepto
+  - El libro mencionado puedes encontrarlo en la pagina de [all it ebooks](http://www.allitebooks.com)
 
 ### Instalación
 
 Para utilizar ZooKeeper puedes descargar la imagen de docker que he generado para las pruebas, o bien hacerlo en tu propia computadora.
 
 ```sh
-$ docker pull spcruzaley/zookeeper
+$ docker pull spcruzaley/zookeeper-examples
 $ docker run -d -it --name zookeper-test spcruzaley/zookeeper:1 /bin/bash
 $ docker exec -it zookeper-test /bin/bash
 ```
@@ -51,7 +55,9 @@ Como ven, ahi tenemos el **PID 1632** ejecutando a ZooKeeper en el **puerto 2181
 
 Procedemos a compilar el fuente para ejecutar los codigos de ejemplo.
 
-`NOTA: Los ejemplos son básicos y, de acuerdo al libro, se recomienta utilizar Curator Framework para la interacción con ZooKeeper, ya que nos ofrece una interfaz mucho mas amigable para interactual con ZooKeeper (Ver ejemplo 5)`
+`NOTA: Los ejemplos son básicos y, de acuerdo al libro, se recomienta utilizar Curator Framework para la interacción con ZooKeeper, ya que nos ofrece una interfaz mucho mas amigable para ello (Ver ejemplo 5).`
+
+`NOTA 2: Recuerda que el proyecto, para este ejemplo, debera ser compilado y ejecutado en la maquina en la cual tengas ZooKeeper ejecutandose, en caso de que hayas utilizado mi imagen de Docker, clona el repo en algun directorio de la imagen y ejecuta desde ahi.`
 
 ```sh
 $ git clone https://github.com/spcruzaley/zookeeper-examples.git
@@ -94,10 +100,10 @@ Znodes of '/':
 zookeeper
 ```
 
-Este ejemplo simplemente nos lista los **znodes** actuales.
+Este ejemplo simplemente nos lista los **znodes** actuales. *El cual es **zookeeper***
 
 ### Ejecutando el ejemplo 2
-El ejemplo 2 consta de un ***Watcher*** que se encargara de notificar cuando se agrega escribe informacion en el ***znode*** que estamos monitoreando, en este caso ***MyConfig***
+El ejemplo 2 consta de un ***Watcher*** que se encargara de notificar cuando se agrega/escribe información en el ***znode*** que estamos monitoreando, en este caso ***MyConfig***
 ## Ventana 1
 ```sh
 $ ./zookeeper example2-watcher
@@ -173,20 +179,15 @@ Event Received: WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/
 MESSAGE: !!!Cluster Membership Change!!!
 MESSAGE: Members: [1938, 6298, 9102]
 ```
-## Ejecutando el ejemplo 3 (1/2 - Monitor)
-```sh
-$ ./zookeeper example3-monitor localhost:2181
-log4j:WARN No appenders could be found for logger (org.apache.zookeeper.ZooKeeper).
-log4j:WARN Please initialize the log4j system properly.
-log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-
-Event Received: WatchedEvent state:SyncConnected type:None path:nullMembers: []
-```
 De esa manera se pueden ejecutar los demas ejemplos.
 # Interfaz de Linea de Comandos (CLI)
 **ZooKeeper** al igual que la mayoria de las herramientas cuenta con una interfaz para interactuar directamente con el. Veamos algunos comandos basicos.
+Antes de ir a ello, cabe mencionar que todas las operaciones realizadas con ZooKeeper tienen un estrucutra de directorios y solo se realizan con **rutas absolutas y no relativas**.
+<p align="center"> 
+![Directorio](https://zookeeper.apache.org/doc/r3.4.13/images/zknamespace.jpg)
+</p> 
 ```sh
-$ cd [ZK_HOME]
+$ cd [ZK_HOME]/bin/
 $ ./zkCli.sh -server localhost:2181
 Connecting to localhost:2181
 ...
@@ -200,19 +201,19 @@ WatchedEvent state:SyncConnected type:None path:null
 ```
 Una vez conectados a ZooKeeper, podemos:
 
-**Listar todos los nodos actuales** *(ls <path>)*
+**Listar todos los nodos actuales** *(ls /path)*
 ```sh
 [zk: localhost:2181(CONNECTED) 0] ls /
 [zookeeper, MyConfig, Members]
 ```
-**Crear un nodo con algun dato especifico** *(create <path> "Mensaje/Informacion")*
+**Crear un nodo con algun dato especifico** *(create /path "Mensaje/Informacion")*
 ```sh
 [zk: localhost:2181(CONNECTED) 2] create /unNodoMas "Con algo de informacion"
 Created /unNodoMas
 [zk: localhost:2181(CONNECTED) 3] ls /
 [zookeeper, MyConfig, Members, unNodoMas]
 ```
-**Crear un hijo** *(create <path> "Mensaje/Informacion")*
+**Crear un hijo** *(create /path "Mensaje/Informacion")*
 ```sh
 [zk: localhost:2181(CONNECTED) 4] create /unNodoMas/unHijo "Informacion de mi hijo"
 Created /unNodoMas/unHijo
@@ -220,7 +221,7 @@ Created /unNodoMas/unHijo
 [unHijo]
 [zk: localhost:2181(CONNECTED) 6]
 ```
-**Ver la informacion de un nodo** *(get <path>)*
+**Ver la informacion de un nodo** *(get /path)*
 ```sh
 [zk: localhost:2181(CONNECTED) 6] get /unNodoMas
 Con algo de informacion
@@ -236,7 +237,7 @@ ephemeralOwner = 0x0
 dataLength = 23
 numChildren = 1
 ```
-*La informacion de cada uno de los ***fields*** se describe a detalle en el libro citado al principio del README.*
+*La informacion de cada uno de los ***fields*** se describe a detalle en el libro citado.*
 
 **Eliminar un nodo** *(delete <path>)*
 ```sh
@@ -275,6 +276,6 @@ ZooKeeper -server host:port cmd args
 [zk: localhost:2181(CONNECTED) 17]
 ```
 Si bien esto no se usa dia a dia en ambientes productivos de *manera manual*, es bueno conocer un poco su funcionamiento.
-Esto y mas se describe en el libro citado al principio del README el cual recomiendo ampliamente su lectura para conocer a detalle las caracteristicas de este proyecto.
+Esto y mas se describe en el libro citado, el cual recomiendo ampliamente su lectura para conocer a detalle las caracteristicas de este proyecto.
 
 ## SPCruzaley
