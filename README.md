@@ -7,6 +7,12 @@ Este repo solo se centra en mostrar algunos ejemplos practicos citados en el lib
 
 `NOTA: Si bien el proyecto, comentarios y algunas cosas mas estan en ingles, la descripción la quice mantener en español dado que la mayoria de libros, videos, blogs, etc. Son solamente en ingles.`
 
+# Qué es ZooKeeper
+
+Una breve intruccion, **ZooKeeper es un proyecto de Apache** el cual básicamente se resume a un **Coordinador de Servicios**, sin embargo no se tome a la ligera el simple resumen que he dado, ya que ZooKeeper es utilizado ampliamente en **Aplicaciones Distribuidas** el cual es su objetivo y razon de existir.
+
+Para dar una idea, es utilizado por empresas como **Yahoo** (*El cual es su creador*), **Netflix**, **Twitter**, **Facebook**, proyectos de Apache como **Haddop**, **Kafka**, **Helix**, y un sin fin de proyectos ENORMES.
+
 # Herramientas utilizadas
 
   - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13
