@@ -1,5 +1,5 @@
 # ZooKeeper
-![alt text](https://zookeeper.apache.org/images/zookeeper_small.gif)
+![ZooKeeper](https://zookeeper.apache.org/images/zookeeper_small.gif)
 
 Ejemplos tomados del libro **Apache ZooKeeper Essentials** *[Aquí puedes conseguirlo](http://www.allitebooks.com)*
 
@@ -186,9 +186,9 @@ De esa manera se pueden ejecutar los demas ejemplos.
 # Interfaz de Linea de Comandos (CLI)
 **ZooKeeper** al igual que la mayoria de las herramientas cuenta con una interfaz para interactuar directamente con el. Veamos algunos comandos basicos.
 Antes de ir a ello, cabe mencionar que todas las operaciones realizadas con ZooKeeper tienen un estrucutra de directorios y solo se realizan con **rutas absolutas y no relativas**.
-<p align="center"> 
-![Directorio](https://zookeeper.apache.org/doc/r3.4.13/images/zknamespace.jpg)
-</p> 
+
+![](https://zookeeper.apache.org/doc/r3.4.13/images/zknamespace.jpg)
+
 ```sh
 $ cd [ZK_HOME]/bin/
 $ ./zkCli.sh -server localhost:2181
