@@ -3,24 +3,24 @@
 
 Ejemplos tomados del libro **Apache ZooKeeper Essentials** *[Aquí puedes conseguirlo](http://www.allitebooks.com)*
 
-Este repo solo se centra en mostrar algunos ejemplos practicos citados en el libro de ZooKeeper.
+Este repo solo se centra en mostrar algunos ejemplos practicos citados en el libro de **ZooKeeper**.
 
 `NOTA: Si bien el proyecto, comentarios y algunas cosas mas estan en ingles, la descripción la quice mantener en español dado que la mayoria de libros, videos, blogs, etc. Son solamente en ingles.`
 
 # Qué es ZooKeeper
 
-Una breve intruccion, **ZooKeeper es un proyecto de Apache** el cual básicamente se resume a un **Coordinador de Servicios**, sin embargo no se tome a la ligera el simple resumen que he dado, ya que ZooKeeper es utilizado ampliamente en **Aplicaciones Distribuidas** el cual es su objetivo y razon de existir.
+Una breve intrucción, **ZooKeeper es un proyecto de Apache** el cual básicamente se resume a un **Coordinador de Servicios**, sin embargo no se tome a la ligera el simple resumen que he dado, ya que **ZooKeeper** es utilizado ampliamente en **Aplicaciones Distribuidas** el cual es su objetivo y principal razón de existir.
 
-Para dar una idea, es utilizado por empresas como **Yahoo** (*El cual es su creador*), **Netflix**, **Twitter**, **Facebook**, proyectos de Apache como **Haddop**, **Kafka**, **Helix**, y un sin fin de proyectos ENORMES.
+Para dar una idea, es utilizado por empresas como **Yahoo** (*El cual es su creador*), **Netflix**, **Twitter**, **Facebook**, proyectos de Apache como **Hadoop**, **Kafka**, **Helix**, y un sin fin de proyectos ENORMES.
 
 # Herramientas utilizadas
 
-  - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13
-  - [Docker](https://www.docker.com/) como contenedor para las pruebas de concepto
+  - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13.
+  - [Docker](https://www.docker.com/) como contenedor para las pruebas de concepto.
 
 ### Instalación
 
-Para utilizar ZooKeeper puedes descargar la imagen de docker que he generado para las pruebas, o bien hacerlo en tu propia computadora.
+Para utilizar **ZooKeeper** puedes descargar la imagen de docker que he generado para las pruebas, o bien hacerlo en tu propia computadora.
 
 ```sh
 $ docker pull spcruzaley/zookeeper-examples
@@ -30,7 +30,7 @@ $ docker exec -it zookeper-test /bin/bash
 
 Una vez estando en el directorio de ZooKeeper, el cual de ahora en adelante llamaremos [ZK_HOME], (*Que comunmente es el directorio en el cual se encuentran las carpetas **bin, conf, docs, etc.***), levantamos el servicio.
 
-Si utilizaste mi imagen solo ve al directorio home y ahi se encuentra el directorio de ZooKeeper
+Si utilizaste mi imagen solo ve al directorio home y ahi se encuentra el directorio de ZooKeeper.
 
 ### Ejecución
 ```sh
@@ -41,7 +41,7 @@ Using config: [ZK_HOME]/bin/../conf/zoo.cfg
 Starting zookeeper ... STARTED
 ```
 
-Veamos el estatus del servicio
+Veamos el estatus del servicio:
 
 ```sh
 $ [ZK_HOME]/bin/zkServer.sh status
@@ -50,7 +50,7 @@ Using config: [ZK_HOME]/bin/../conf/zoo.cfg
 Mode: standalone
 ```
 
-Listo, si todo salio bien, ya tenemos arriba nuestro servicio de ZooKeeper, el cual se ejecuta en el puerto 2181. Y solo para no dejar de lado, veamos si es correcto:
+Listo, si todo salio bien, ya tenemos arriba nuestro servicio de **ZooKeeper**, el cual se ejecuta en el puerto 2181. Y solo para no dejar de lado, veamos si es correcto:
 
 ```sh
 $ netstat -ntpl
@@ -60,7 +60,7 @@ tcp        0      0 0.0.0.0:2181        0.0.0.0:*           LISTEN  1632/java
 tcp        0      0 0.0.0.0:42865       0.0.0.0:*           LISTEN  1632/java
 ```
 
-Como ven, ahi tenemos el **PID 1632** ejecutando a ZooKeeper en el **puerto 2181**
+Como ven, ahi tenemos el **PID 1632** ejecutando a **ZooKeeper** en el **puerto 2181**
 
 Procedemos a compilar el fuente para ejecutar los codigos de ejemplo.
 
@@ -176,7 +176,7 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 
 Event Received: WatchedEvent state:SyncConnected type:None path:null
 ```
-Despues de la ejecucion del cliente para generar un ***znode***, regresanmos a la ventana 1 para ver la notificación del evento:
+Después de la ejecución del cliente para generar un ***znode***, regresamos a la ventana 1 para ver la notificación del evento:
 ```sh
 Event Received: WatchedEvent state:SyncConnected type:NodeChildrenChanged path:/Members
 MESSAGE: !!!Cluster Membership Change!!!
@@ -191,7 +191,7 @@ MESSAGE: Members: [1938, 6298, 9102]
 De esa manera se pueden ejecutar los demas ejemplos.
 # Interfaz de Linea de Comandos (CLI)
 **ZooKeeper** al igual que la mayoria de las herramientas cuenta con una interfaz para interactuar directamente con el. Veamos algunos comandos basicos.
-Antes de ir a ello, cabe mencionar que todas las operaciones realizadas con ZooKeeper tienen un estrucutra de directorios y solo se realizan con **rutas absolutas y no relativas**.
+Pero, antes de ir a ello, cabe mencionar que todas las operaciones realizadas con **ZooKeeper** tienen un estrucutra de directorios y solo se realizan con **rutas absolutas y no relativas**.
 
 ![](https://zookeeper.apache.org/doc/r3.4.13/images/zknamespace.jpg)
 
@@ -230,7 +230,7 @@ Created /unNodoMas/unHijo
 [unHijo]
 [zk: localhost:2181(CONNECTED) 6]
 ```
-**Ver la informacion de un nodo** *(get /path)*
+**Ver la información de un nodo** *(get /path)*
 ```sh
 [zk: localhost:2181(CONNECTED) 6] get /unNodoMas
 Con algo de informacion
@@ -246,7 +246,7 @@ ephemeralOwner = 0x0
 dataLength = 23
 numChildren = 1
 ```
-*La informacion de cada uno de los ***fields*** se describe a detalle en el libro citado.*
+*La información de cada uno de los ***fields*** se describe a detalle en el libro citado.*
 
 **Eliminar un nodo** *(delete <path>)*
 ```sh
@@ -286,5 +286,6 @@ ZooKeeper -server host:port cmd args
 ```
 Si bien esto no se usa dia a dia en ambientes productivos de *manera manual*, es bueno conocer un poco su funcionamiento.
 Esto y mas se describe en el libro citado, el cual recomiendo ampliamente su lectura para conocer a detalle las caracteristicas de este proyecto.
+
 
 ## SPCruzaley
