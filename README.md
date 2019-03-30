@@ -23,8 +23,12 @@ $ docker exec -it zookeper-test /bin/bash
 ```
 
 Una vez estando en el directorio de ZooKeeper, el cual de ahora en adelante llamaremos [ZK_HOME], (*Que comunmente es el directorio en el cual se encuentran las carpetas **bin, conf, docs, etc.***), levantamos el servicio.
+
+Si utilizaste mi imagen solo ve al directorio home y ahi se encuentra el directorio de ZooKeeper
+
 ### Ejecución
 ```sh
+$ cd
 $ [ZK_HOME]/bin/zkServer.sh start
 ZooKeeper JMX enabled by default
 Using config: [ZK_HOME]/bin/../conf/zoo.cfg
