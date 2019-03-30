@@ -1,6 +1,6 @@
 # ZooKeeper
 
-Ejemplos tomados del libro **Apache ZooKeeper Essentials**
+Ejemplos tomados del libro **Apache ZooKeeper Essentials** *[Aquí puedes conseguirlo](http://www.allitebooks.com)*
 
 Este repo solo se centra en mostrar algunos ejemplos practicos citados en el libro de ZooKeeper.
 
