@@ -5,13 +5,12 @@ Ejemplos tomados del libro **Apache ZooKeeper Essentials** *[Aquí puedes conseg
 
 Este repo solo se centra en mostrar algunos ejemplos practicos citados en el libro de ZooKeeper.
 
-`NOTA: Si bien el proyecto, comentarios y algunas cosas mas estan en ingles, la descripción la quice mantener en español dado que no existe mucha información en español al respecto.`
+`NOTA: Si bien el proyecto, comentarios y algunas cosas mas estan en ingles, la descripción la quice mantener en español dado que la mayoria de libros, videos, blogs, etc. Son solamente en ingles.`
 
 # Herramientas utilizadas
 
   - [ZooKeeper](https://zookeeper.apache.org/), en este caso se utilizo la version 3.4.13
   - [Docker](https://www.docker.com/) como contenedor para las pruebas de concepto
-  - El libro mencionado puedes encontrarlo en la pagina de [all it ebooks](http://www.allitebooks.com)
 
 ### Instalación
 
