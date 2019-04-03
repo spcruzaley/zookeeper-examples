@@ -7,6 +7,8 @@ import com.zookeeper.chapter3.example3.ClusterClient;
 import com.zookeeper.chapter3.example3.ClusterMonitor;
 import com.zookeeper.chapter6.example4.MyCuratorClient;
 import com.zookeeper.chapter6.example5.CuratorFrameworkClient;
+import com.zookeeper.stocks.StocksUpdater;
+import com.zookeeper.stocks.StocksWatcher;
 
 public class RunExample {
 
@@ -37,6 +39,12 @@ public class RunExample {
             case "example5-curator-framework":
                 CuratorFrameworkClient.main(args);
                 break;
+            case "generate-stocks":
+                StocksUpdater.main(args);
+                break;
+            case "watcher-stocks":
+                StocksWatcher.main(args);
+                break;
             default:
                 System.out.println("Don't know how to do " + args[0]);
                 howToUse();
@@ -52,6 +60,7 @@ public class RunExample {
                 "\t[CHAPTER 3] example3-monitor <host:port>, example3-client <host:port>\n" +
                 "\t[CHAPTER 6] example4-curator-client\n" +
                 "\t[CHAPTER 6] example5-curator-framework\n" +
+                "\t[Own Examples] generate-stocks, watcher-stocks\n" +
                 "\nexample: zookeeper example2-updater\n");
         System.exit(0);
     }
